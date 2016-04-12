@@ -1,6 +1,9 @@
 <application>
   <component name="FindSettings">
+    <option name="customScope" value="File 'C:\wwjPortal\src\main\resources\static\css\style.css'" />
+    <option name="defaultScopeName" value="File 'C:\wwjPortal\src\main\resources\static\css\style.css'" />
     <option name="localCaseSensitive" value="true" />
     <option name="LOCAL_CASE_SENSITIVE_SEARCH" value="true" />
+    <option name="SEARCH_SCOPE" value="File 'C:\wwjPortal\src\main\resources\static\css\style.css'" />
   </component>
 </application>
