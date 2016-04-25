@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     var doughnutData = [
         {
             value: 30,
@@ -101,6 +100,13 @@ $(document).ready(function() {
             color: "#584A5E"
         }
     ];
+
+
+
+
+    var valores = ["0","10"];
+
+
     var radarChartData = {
         labels : ["","","","","","",""],
         datasets : [

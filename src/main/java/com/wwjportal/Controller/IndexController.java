@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
+    //Redirect page.
     @RequestMapping(value="/")
-    public String index(){return "login";}
+    public String index(){
+
+        return "login";
+
+    }
 
 }

@@ -21,8 +21,10 @@ public class Main {
     static {
         try {
             Configuration configuration = new Configuration();
+            configuration.configure("hibernate.sqlserver-cfg.xml");
             configuration.addAnnotatedClass(com.wwjportal.Model.User.class);
             configuration.configure();
+
 
             serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             ourSessionFactory = configuration.buildSessionFactory(serviceRegistry);

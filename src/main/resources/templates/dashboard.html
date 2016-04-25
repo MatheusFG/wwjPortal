@@ -9,7 +9,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal"/>
     <link rel="shortcut icon" href="img/favicon.png"/>
 
-    <title>Creative - Bootstrap Admin Template</title>
+    <title>wwjPortal</title>
 
     <!-- Bootstrap CSS -->    
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
@@ -53,7 +53,7 @@
             </div>
 
             <!--logo start-->
-            <a href="dashboard.html" class="logo">wwj <span class="lite">Portal</span></a>
+            <a href="/dashboard" class="logo">wwj <span class="lite">Portal</span></a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
@@ -274,7 +274,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg"/>
                             </span>
-                            <span class="username">Jenifer Smith</span>
+                            <span class="username"><th th:text="${session.usuariologado.user_login}"/></span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -292,7 +292,7 @@
                                 <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                             </li>
                             <li>
-                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="/logout"><i class="icon_key_alt"></i> Log Out</a>
                             </li>
                             <li>
                                 <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
@@ -315,7 +315,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">                
                   <li class="active">
-                      <a class="" href="index.html">
+                      <a class="" href="/dashboard">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -330,7 +330,14 @@
                           <li><a class="" href="form_component.html">Form Elements</a></li>                          
                           <li><a class="" href="form_validation.html">Form Validation</a></li>
                       </ul>
-                  </li>       
+                  </li>
+                  <li class="sub-menu">
+                      <a href="/report" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>Reports</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                  </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon_desktop"></i>
@@ -350,7 +357,7 @@
                       </a>
                   </li>
                   <li>                     
-                      <a class="" href="chart-chartjs.html">
+                      <a class="" href="/chart">
                           <i class="icon_piechart"></i>
                           <span>Charts</span>
                           
@@ -397,7 +404,7 @@
 				<div class="col-lg-12">
 					<h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-home"></i><a href="/dashboard">Home</a></li>
 						<li><i class="fa fa-laptop"></i>Dashboard</li>						  	
 					</ol>
 				</div>
@@ -406,9 +413,9 @@
             <div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 					<div class="info-box blue-bg">
-						<i class="fa fa-cloud-download"></i>
-						<div class="count">6.674</div>
-						<div class="title">Download</div>						
+						<i class="fa fa-users"></i>
+						<div class="count"><th th:text="${count}"></th></div>
+						<div class="title">Registros</div>
 					</div><!--/.info-box-->			
 				</div><!--/.col-->
 				
@@ -813,7 +820,7 @@
                               <div class="col-lg-4">
                                 <span class="profile-ava pull-right">
                                         <img alt="" class="simple" src="img/avatar1_small.jpg"/>
-                                        Jenifer smith
+
                                 </span>                                
                               </div>
                             </div>

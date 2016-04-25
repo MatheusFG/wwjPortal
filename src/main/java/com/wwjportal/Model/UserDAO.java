@@ -1,11 +1,13 @@
 package com.wwjportal.Model;
 
 import com.wwjportal.Config.Main;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.ui.Model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,13 +15,25 @@ import java.util.Date;
  */
 public class UserDAO {
 
+    Session session = com.wwjportal.Config.Main.getSession().getSessionFactory().openSession();
+
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
+
     public void CreateUser(String login, String senha , Model model){
         try {
 
             // Open new Session.
-            Session session = com.wwjportal.Config.Main.getSession().getSessionFactory().openSession();
+
             session.beginTransaction();
 
+
+            System.out.println("Entrou no Mysql");
             //Get system time.
 
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -90,8 +104,32 @@ public class UserDAO {
         }
     }
 
+    public void findAll(Model model){
 
-    public boolean CheckAcess(String login, String password, Model model){
+        try {
+
+            Criteria criteria = Main.getSession().createCriteria(User.class);
+            ArrayList<User> logins = (ArrayList) criteria.list();
+
+            for(int i = 0; i < logins.size(); i++){
+                model.addAttribute("count", i+1);
+            }
+
+            model.addAttribute("ArrayLogins", logins);
+
+        }
+
+        finally {
+
+            // Finally.
+
+        }
+
+
+    }
+
+
+    public User CheckAcess(String login, String password, Model model){
 
 
         User user = new User();
@@ -100,7 +138,7 @@ public class UserDAO {
         if(user == null){
 
             model.addAttribute("message", "Login or Password incorrect.");
-            return false;
+            return null;
 
         }
         else if(!password.equals(user.getUser_password()) ){
@@ -108,13 +146,13 @@ public class UserDAO {
 
             System.out.println("LOGIN: " + user.getUser_login() + "PASSWORD: " + user.getUser_password());
             model.addAttribute("message", "Login or Password incorrect.");
-            return false;
+            return null;
 
         }
         else{
 
             System.out.println("Logged-in...");
-            return true;
+            return user;
         }
 
     }

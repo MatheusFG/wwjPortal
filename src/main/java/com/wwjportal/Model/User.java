@@ -3,6 +3,7 @@ package com.wwjportal.Model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -12,7 +13,7 @@ import javax.persistence.Id;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int user_id;
 
     @Column(name = "user_login", unique = true)
