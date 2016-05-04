@@ -1,6 +1,8 @@
-package com.wwjportal.Model;
+package com.wwjportal.Model.DAO;
 
 import com.wwjportal.Config.Main;
+import com.wwjportal.Model.Role;
+import com.wwjportal.Model.User;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -89,7 +91,7 @@ public class UserDAO {
     public User findByName(String login) {
         try {
 
-            //O metodo usado agora é o eq().
+            //O metodo usado é o eq().
             // Precisamos informar 2 parametros para ele.
             //O 1° é o atributo (nome) declarado na classe User.
             //Não confundir com o campo da tabela, deve ser o atributo.
@@ -155,6 +157,28 @@ public class UserDAO {
             return user;
         }
 
+    }
+
+    public void ForeignKeyTest(){
+
+        session.beginTransaction();
+        User user = new User();
+        Role role = new Role();
+
+        user.setUser_id(27);
+        user.setUser_login("sds");
+        user.setUser_password("osssi");
+        user.setUser_status("atissssvo");
+
+        role.setRole_id(1);
+
+
+        // Adding a foreign key.
+        user.getUserList().add(role);
+        session.save(user);
+
+        session.beginTransaction();
+        session.getTransaction().commit();
     }
 
 
