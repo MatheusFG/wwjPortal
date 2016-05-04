@@ -1,7 +1,7 @@
 package com.wwjportal.Controller;
 
 import com.wwjportal.Model.User;
-import com.wwjportal.Model.UserDAO;
+import com.wwjportal.Model.DAO.UserDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

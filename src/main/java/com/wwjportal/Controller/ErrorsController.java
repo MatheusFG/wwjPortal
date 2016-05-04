@@ -2,7 +2,7 @@ package com.wwjportal.Controller;
 
 
 import com.wwjportal.Model.User;
-import com.wwjportal.Model.UserDAO;
+import com.wwjportal.Model.DAO.UserDAO;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Path;
 
 /**
  * Created by User on 13/04/2016.
@@ -26,9 +25,12 @@ public class ErrorsController implements ErrorController {
     @RequestMapping(value={"/dashboard"}, method = RequestMethod.GET)
     public String userNotFound(Model model, HttpSession session){
 
+
+
         User userSession=(User) session.getAttribute("usuariologado");
 
         if(userSession == null){
+
             return "404";
         }
         else{

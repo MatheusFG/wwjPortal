@@ -21,8 +21,9 @@ public class Main {
     static {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure("hibernate.sqlserver-cfg.xml");
+            configuration.configure("hibernate.cfg.xml");
             configuration.addAnnotatedClass(com.wwjportal.Model.User.class);
+            configuration.addAnnotatedClass(com.wwjportal.Model.Role.class);
             configuration.configure();
 
 

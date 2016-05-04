@@ -1,8 +1,7 @@
 package com.wwjportal.Controller;
 
-import com.wwjportal.Model.SqlServer.UserSQL;
 import com.wwjportal.Model.User;
-import com.wwjportal.Model.UserDAO;
+import com.wwjportal.Model.DAO.UserDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,10 +29,12 @@ public class LoginController {
 
            //Set a session UsuarioLogado.
            session.setAttribute("usuariologado", user);
+
+           // Find records users/alarms
            daoAccess.findAll(model);
 
 
-           /*  Pode ser usado o server.session.timeout= # */
+           // Can use in archive App Properties(Spring Boot) server.session.timeout= #;
            // Time session.
            // session.setMaxInactiveInterval(1*60);
            return "dashboard";
@@ -50,6 +51,7 @@ public class LoginController {
     @RequestMapping(value = "/logout")
     public String logout(Model model,HttpSession session){
 
+        //Delete session
         session.invalidate();
 
         model.addAttribute("message", "Logout Successful !");
