@@ -6,8 +6,9 @@
 
     <class name="com.wwjportal.Model.User">
         <id name="user_id" type="java.lang.Integer">
-            <generator class="identity" />
+            <generator class="identity"/>
         </id>
+
     </class>
 
 </hibernate-mapping>
