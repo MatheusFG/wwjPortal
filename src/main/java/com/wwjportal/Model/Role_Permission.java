@@ -15,12 +15,8 @@ public class Role_Permission {
     private int role_permission_id;
 
 
-    @ManyToMany
-    @JoinColumn(foreignKey = @ForeignKey(foreignKeyDefinition = "FOREIGN KEY(role_id) REFERENCES ROLE"))
     private Role role_id;
 
-    @ManyToMany
-    @JoinColumn(foreignKey = @ForeignKey(foreignKeyDefinition = "FOREIGN KEY(permission_id) REFERENCES PERMISSION"))
     private Permission permission;
 
     public int getRole_permission_id() {

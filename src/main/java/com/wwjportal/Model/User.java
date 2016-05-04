@@ -1,16 +1,26 @@
 package com.wwjportal.Model;
 
+import ch.qos.logback.classic.db.names.ColumnName;
+
+import java.util.*;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.GenerationType;
 /**
  * Created by User on 11/04/2016.
  */
 @Entity
-public class User {
+@Table(name="User")
+public class User{
+
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -30,6 +40,9 @@ public class User {
 
     @Column(name = "user_status")
     private String user_status;
+
+    @ManyToMany
+    private Collection<Role> roleList = new ArrayList<Role>();
 
     public int getUser_id() {
         return user_id;
@@ -77,5 +90,14 @@ public class User {
 
     public void setUser_status(String user_status) {
         this.user_status = user_status;
+    }
+
+
+    public Collection<Role> getUserList() {
+        return roleList;
+    }
+
+    public void setUserList(Collection<Role> userList) {
+        this.roleList = userList;
     }
 }

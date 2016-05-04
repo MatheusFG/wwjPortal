@@ -1,19 +1,20 @@
 package com.wwjportal.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by User on 11/04/2016.
  */
 
 @Entity
-public class Role {
+public class Role{
 
     @Id
-    @GeneratedValue
     private int role_id;
 
     @Column(name="role_name")
@@ -24,6 +25,23 @@ public class Role {
 
     @Column(name="role_status")
     private String role_status;
+
+
+    @ManyToMany(mappedBy = "roleList")
+    private Collection<User> userList = new ArrayList<User>();
+/*    @ManyToMany
+    @JoinTable(name="User_Role",
+            joinColumns = {@JoinColumn(name = "role_id")},
+            inverseJoinColumns = {@JoinColumn(name="user_id")})
+    private Set<Role> listrole = new HashSet<Role>();*/
+
+    public Collection<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(Collection<User> userList) {
+        this.userList = userList;
+    }
 
     public int getRole_id() {
         return role_id;
