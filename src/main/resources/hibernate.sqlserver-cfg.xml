@@ -14,7 +14,7 @@
 
         <mapping class="com.wwjportal.Model.User"/>
 
-        <mapping resource="hibernateMapping.xml"/>
+        <mapping resource="HibernateMapping/User.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
     </session-factory>
