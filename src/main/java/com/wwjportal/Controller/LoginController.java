@@ -27,6 +27,10 @@ public class LoginController {
 
        if(user != null){
 
+
+           //Check role.
+           session.setAttribute("isUser",daoAccess.isUser(user.getUser_id()));
+
            //Set a session UsuarioLogado.
            session.setAttribute("usuariologado", user);
 

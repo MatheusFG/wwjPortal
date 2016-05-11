@@ -18,7 +18,7 @@
         <mapping class="com.wwjportal.Model.Role"/>
         <mapping class="com.wwjportal.Model.Permission"/>
 
-        <mapping resource="HibernateMapping/User.hbm.xml"/>
+        <mapping resource=" HibernateMapping/User.hbm.xml"/>
         <mapping resource="HibernateMapping/Role.hbm.xml"/>
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

@@ -4,13 +4,16 @@ import com.wwjportal.Config.Main;
 import com.wwjportal.Model.Role;
 import com.wwjportal.Model.User;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.ui.Model;
 
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by User on 11/04/2016.
@@ -36,12 +39,13 @@ public class UserDAO {
 
 
             System.out.println("Entrou no Mysql");
-            //Get system time.
 
+            //Get system time.
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             String data = sdf.format(new Date());
 
             System.out.println("System Time: " + data);
+
 
 
             User user = new User();
@@ -50,10 +54,20 @@ public class UserDAO {
             user.setUser_password(senha);
             user.setUser_creation(data);
 
+            // Adding a foreign key.
+            Role role = new Role();
 
+            // Setting a role: user.
+            role.setRole_id(1);
+            user.getUserList().add(role);
+            // Adding a foreign key.
 
             // Save user object.
             session.save(user);
+
+
+            /*//Foreign Key with User_Role
+            user_roleDAO.AddingForeignKey(NextVal());*/
 
             // Add html tags.
             model.addAttribute("login", user.getUser_login());
@@ -98,6 +112,24 @@ public class UserDAO {
             //O 2° parametro é o recebido pelo metodo, que contem o nome usado.
 
             return (User) Main.getSession().createCriteria(User.class).add(Restrictions.eq("user_login", login)).uniqueResult();
+
+
+
+        } finally {
+
+        }
+    }
+
+    public User findById(int idUser) {
+        try {
+
+            //O metodo usado é o eq().
+            // Precisamos informar 2 parametros para ele.
+            //O 1° é o atributo (nome) declarado na classe User.
+            //Não confundir com o campo da tabela, deve ser o atributo.
+            //O 2° parametro é o recebido pelo metodo, que contem o nome usado.
+
+            return (User) Main.getSession().createCriteria(User.class).add(Restrictions.eq("user_login", idUser)).uniqueResult();
 
 
 
@@ -159,27 +191,26 @@ public class UserDAO {
 
     }
 
-    public void ForeignKeyTest(){
-
-        session.beginTransaction();
-        User user = new User();
-        Role role = new Role();
-
-        user.setUser_id(27);
-        user.setUser_login("sds");
-        user.setUser_password("osssi");
-        user.setUser_status("atissssvo");
-
-        role.setRole_id(1);
 
 
-        // Adding a foreign key.
-        user.getUserList().add(role);
-        session.save(user);
+    public String isUser(int id){
 
-        session.beginTransaction();
-        session.getTransaction().commit();
+        String sql = "select roleList_role_id from user_role where userList_user_id="+id;
+
+        Query query = session.createSQLQuery(sql);
+        int next = (int) query.uniqueResult();
+
+        String sql2 = "select role_name from Role where role_id="+ next;
+
+        Query query2 = session.createQuery(sql2);
+        String getRole = (String) query2.uniqueResult();
+
+        System.out.println(getRole);
+
+        return getRole;
     }
+
+
 
 
 }

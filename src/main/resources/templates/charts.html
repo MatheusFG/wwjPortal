@@ -269,6 +269,9 @@
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
                             <li class="eborder-top">
+                                <div th:switch="${session.isUser}">
+                                    <a th:case="admin" href="#"><i class="icon_profile"></i> Admin Painel</a>
+                                </div>
                                 <a href="#"><i class="icon_profile"></i> My profile"/></a>
                             </li>
                             <li>
