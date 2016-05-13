@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="Conexao" type="CLASS" />
       <mapping ext="cfg" type="PLAIN_TEXT" />
+      <mapping pattern="Sqluser" type="XML" />
       <mapping ext="hbm" type="XML" />
     </extensionMap>
   </component>
