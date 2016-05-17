@@ -1,7 +1,8 @@
 package com.wwjportal.Controller;
 
-import com.wwjportal.Model.User;
-import com.wwjportal.Model.DAO.UserDAO;
+import com.wwjportal.Model.AlarmDB.SqlServerDAO.AlarmUsersDao;
+import com.wwjportal.Model.Portal.User;
+import com.wwjportal.Model.Portal.DAO.MysqlDAO.UserDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class LoginController {
     public String FindUser(@RequestParam(value = "login") String login, String password, Model model, HttpSession session){
 
         User user = daoAccess.CheckAcess(login,password,model);
+        AlarmUsersDao AlarmDAO = new AlarmUsersDao();
 
        if(user != null){
 
@@ -35,7 +37,7 @@ public class LoginController {
            session.setAttribute("usuariologado", user);
 
            // Find records users/alarms
-           daoAccess.findAll(model);
+           AlarmDAO.findAllAlarm(model);
 
 
            // Can use in archive App Properties(Spring Boot) server.session.timeout= #;

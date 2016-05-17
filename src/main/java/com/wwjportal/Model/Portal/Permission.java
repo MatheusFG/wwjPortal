@@ -1,4 +1,4 @@
-package com.wwjportal.Model;
+package com.wwjportal.Model.Portal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

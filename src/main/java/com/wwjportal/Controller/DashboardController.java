@@ -1,7 +1,8 @@
 package com.wwjportal.Controller;
 
-import com.wwjportal.Model.User;
-import com.wwjportal.Model.DAO.UserDAO;
+import com.wwjportal.Model.AlarmDB.SqlServerDAO.AlarmUsersDao;
+import com.wwjportal.Model.Portal.User;
+import com.wwjportal.Model.Portal.DAO.MysqlDAO.UserDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpSession;
 public class DashboardController {
 
     private UserDAO daoAccess = new UserDAO();
+    private AlarmUsersDao alarmdao = new AlarmUsersDao();
 
     @RequestMapping(value="/report")
     public String showReports(Model model, HttpSession session){
@@ -30,7 +32,7 @@ public class DashboardController {
         else{
 
             //Find all Users on db.
-            daoAccess.findAll(model);
+            alarmdao.findAllAlarm(model);
             return "report";
         }
 

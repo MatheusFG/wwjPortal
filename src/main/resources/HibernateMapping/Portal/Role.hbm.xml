@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.wwjportal.Model.Role">
+    <class name="com.wwjportal.Model.Portal.Role">
         <id name="role_id" type="java.lang.Integer">
             <generator class="identity"/>
         </id>

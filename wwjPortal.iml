@@ -9,7 +9,7 @@
         <datasource-map>
           <unit-entry name="hibernate-sqlserver.cfg.xml" />
           <unit-entry name="hibernate.cfg.xml" value="af7cf81f-82ef-4a7b-9af1-4f423ded989a" />
-          <unit-entry name="hibernate.sqlserver-cfg.xml" />
+          <unit-entry name="hibernate.sqlserver-cfg.xml" value="af7cf81f-82ef-4a7b-9af1-4f423ded989a" />
           <unit-entry name="src:test:hibernate.cfg.xml" />
         </datasource-map>
         <naming-strategy-map />

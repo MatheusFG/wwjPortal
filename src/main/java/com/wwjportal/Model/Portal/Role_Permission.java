@@ -1,6 +1,8 @@
-package com.wwjportal.Model;
+package com.wwjportal.Model.Portal;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 
 /**
  * Created by User on 12/04/2016.
@@ -13,7 +15,6 @@ public class Role_Permission {
     @Id
     @GeneratedValue
     private int role_permission_id;
-
 
     private Role role_id;
 

@@ -17,12 +17,12 @@ public class ChartJSON {
 
         try {
             Chart chart = new Chart();
-            chart.setName("Pie");
-            chart.setValues(valores);
+            chart.setChart_name("Pie");
+            chart.setChart_values(valores);
             JSONObject graficosJSON = new JSONObject();
             JSONObject jsonObj = new JSONObject();
-            jsonObj.put("nome", chart.getName());
-            jsonObj.put("values", chart.getValues());
+            jsonObj.put("nome", chart.getChart_name());
+            jsonObj.put("values", chart.getChart_values());
             graficosJSON.put("Gráficos",jsonObj);
             model.addAttribute("valores", graficosJSON);
             System.out.println(graficosJSON);

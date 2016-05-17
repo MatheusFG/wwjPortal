@@ -4,11 +4,14 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.wwjportal.Model.User">
-        <id name="user_id" type="java.lang.Integer">
+    <class name="com.wwjportal.Model.AlarmDB.UserDetail">
+        <id name="userKey" type="java.lang.Integer">
             <generator class="identity"/>
         </id>
-
+        <property name="Username"/>
+        <property name="accesslevel"/>
+        <property name="uid"/>
+        <property name="gid"/>
     </class>
 
 </hibernate-mapping>

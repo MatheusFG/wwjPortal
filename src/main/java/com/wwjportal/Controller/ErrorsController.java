@@ -1,8 +1,8 @@
 package com.wwjportal.Controller;
 
 
-import com.wwjportal.Model.User;
-import com.wwjportal.Model.DAO.UserDAO;
+import com.wwjportal.Model.Portal.User;
+import com.wwjportal.Model.Portal.DAO.MysqlDAO.UserDAO;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

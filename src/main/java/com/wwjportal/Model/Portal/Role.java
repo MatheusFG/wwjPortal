@@ -1,11 +1,8 @@
-package com.wwjportal.Model;
+package com.wwjportal.Model.Portal;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by User on 11/04/2016.

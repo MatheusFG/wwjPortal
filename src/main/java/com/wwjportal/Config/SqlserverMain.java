@@ -1,5 +1,6 @@
 package com.wwjportal.Config;
 
+import com.wwjportal.Model.AlarmDB.UserDetail;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -14,16 +15,15 @@ import java.util.Map;
 /**
  * Created by User on 11/04/2016.
  */
-public class Main {
+public class SQLServerMain {
     private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
     static {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure("hibernate.cfg.xml");
-            configuration.addAnnotatedClass(com.wwjportal.Model.User.class);
-            configuration.addAnnotatedClass(com.wwjportal.Model.Role.class);
+            configuration.configure("hibernate.sqlserver-cfg.xml");
+            configuration.addAnnotatedClass(UserDetail.class);
             configuration.configure();
 
 

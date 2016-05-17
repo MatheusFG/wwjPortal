@@ -1,16 +1,12 @@
-package com.wwjportal.Model;
+package com.wwjportal.Model.Portal;
 
-import ch.qos.logback.classic.db.names.ColumnName;
+import java.util.Collection;
+import java.util.ArrayList;
 
-import java.util.*;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.GenerationType;
@@ -18,7 +14,7 @@ import javax.persistence.GenerationType;
  * Created by User on 11/04/2016.
  */
 @Entity
-@Table(name="User")
+@Table(name = "Users")
 public class User{
 
 
